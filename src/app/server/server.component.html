@@ -1,0 +1,7 @@
+<!-- NgStyle -->
+<h1 [ngStyle]="{backgroundColor:getColor()}" [ngClass]="{online:serverStatus==='online'}">{{'Server'}} with ID {{serverId}} is {{getServerStatus()}}</h1>
+<button (click)="addList()">Display list</button>
+<p *ngIf="togglePassword">I Love Both React And Angular</p>
+<div [ngStyle]="{backgroundColor:getList()}"  *ngFor="let data of addItem">
+<p [ngClass]="{greater5:addItem.length>=5}">{{data}}</p>
+</div>

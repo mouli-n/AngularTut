@@ -1,0 +1,18 @@
+<!-- property binding [dis]="!allow" -->
+<input (input)="updateInput($event)" />
+<button [disabled]="!allowNewServer" (click)="addServer()">Add Server</button>
+<!-- <p [innerText]="allowNewServer" ></p> -->
+
+<p *ngIf="serverCreated">Server was creacted Name is <strong>{{serverName}}</strong></p>
+
+<!-- AssignMents -->
+<!-- combine property event and string interpolation -->
+<!-- <label>UserName</label>
+<input [(ngModel)]="username"/>
+<br/>
+<p [innerText]="username"></p>
+<br/>
+<button [disabled]="!!!username.length" (click)="addUser()">Add User</button> -->
+<!-- end Assignments -->
+<!-- <app-server></app-server> -->
+<app-server></app-server>

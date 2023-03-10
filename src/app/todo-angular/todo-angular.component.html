@@ -1,0 +1,109 @@
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  "
+>
+  <h1>TODO APP USING SERVICE AND HTTP API CALL AND SMALL COUNTER TASK</h1>
+  <h1>Counter {{ count }}</h1>
+
+  <button (click)="onAdd()">Increment</button>
+  <br />
+  <button (mouseenter)="onDecrement()">Decrement</button>
+
+  <br />
+  <br />
+  <div style="display: flex; justify-content: center">
+    <div
+      style="
+        width: 400px;
+        height: 400px;
+        background-color: aqua;
+        overflow: auto;
+        border-radius: 10px;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 1em;
+        "
+      >
+        <!-- <input [(ngModel)]="text" type="text" placeholder="Add you list" /> -->
+        <button (click)="addArray()">Add</button>
+      </div>
+
+      <div
+        *ngFor="let names of arr; index as i"
+        style="height: 50px; color: whitesmoke; margin-top: 0.5em"
+      >
+        <div *ngIf="!names.edit; then thenBlock; else elseBlock"></div>
+        <ng-template #thenBlock>
+          <div
+            style="
+              padding: 0.5em;
+              display: flex;
+              align-items: center;
+              background-color: rgb(90, 90, 90);
+              justify-content: space-between;
+            "
+          >
+            <div>
+              <h3 (dblclick)="setEditTrue(i)" style="margin: 0">
+                {{ names.name }}
+              </h3>
+            </div>
+            <div style="display: flex; gap: 10px">
+              <button (click)="setEditTrue(i)" mat-raised-button color="accent">
+                edit
+              </button>
+              <button (click)="delete(i)" mat-raised-button color="warn">
+                delete
+              </button>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #elseBlock>
+          <div
+            style="
+              padding: 0.5em;
+              display: flex;
+              align-items: center;
+              background-color: rgb(90, 90, 90);
+              justify-content: space-between;
+            "
+          >
+            <div>
+              <input #text2 value="{{ names.name }}" />
+            </div>
+
+            <div style="display: flex; gap: 10px">
+              <button
+                (click)="setSaveTrue(i, text2.value)"
+                mat-stroked-button
+                color="accent"
+              >
+                Save
+              </button>
+              <button (click)="delete(i)" mat-raised-button color="warn">
+                delete
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pipes ( | ) opererator in javascript does not change value property in class its just view purpose only
+
+    2 PRINCIPLES
+        * DRY DO NOT REPEAT YOURSELF
+        *SINGLE RESPONSIBILITY PRINICIPLE
+
+    Service is used for share data between one or more components -->

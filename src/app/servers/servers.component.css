@@ -1,0 +1,10 @@
+button {
+  background-color: rgb(31, 210, 171);
+  color: azure;
+  padding:.5em;
+  border:1px solid white;
+
+}
+button:disabled{
+  opacity: 0.5;
+}
